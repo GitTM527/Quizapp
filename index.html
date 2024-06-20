@@ -7,33 +7,85 @@
     <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
-    <div class="quiz-container" id="quiz">
-        <div class="quiz-header">
-        <h2 id="question">Questions here</h2>
-        <ul>
-            <li>
-                <input type="radio" id="a" name="answer" class="answer"/>
-                <label id="a_text" for="a">Question</label>
-            </li>
+    <section>
+        <div class="Intro">
+            <div class="head">
+                <div class="score"><button>View High Score</button></div>
+                <div class="quizTime">
+                   <button> Time: 
+                       <span class="timer">
+                          0
+                       </span>
+                   </button>
+                </div>
+            </div>
+            <div>
+                <div class="contName">
+                    <p>WEB2 </br> JAVASCRIPT CHALLENGE </br>QUIZ</p>
+                </div>
+                <div class="start_btn" id="startBtn"><button>START QUIZ</button></div>
+            </div>   
+        </div>  
+    </section>
 
-            <li>
-                <input type="radio" id="b" name="answer" class="answer"/>
-                <label id="b_text" for="b">Question</label>
-            </li>
-
-            <li>
-                <input type="radio" id="c" name="answer" class="answer"/>
-                <label id="c_text" for="c">Question</label>
-            </li>
-
-            <li>
-                <input type="radio" id="d" name="answer" class="answer"/>
-                <label id="d_text" for="d">Question</label>
-            </li>
-        </ul>
+    <!-- Instruction Box -->
+    <section class="instruction_box" id="instBox">
+        <div class="rule_list">
+            <span>Follow the Instructions below</span>
         </div>
-        <button id="submit">SUBMIT</button>
-    </div>
+        <div class="quiz_rules">
+            <div class="rules">1. You will only have <span>15 seconds</span> per each question.</div>
+            <div class="rules">2. Once you select your Answer, you can't reselect anymore.</div>
+            <div class="rules">3. You can't select any option once time goes off.</div>
+            <div class="rules">4. You can't exit from the quiz while you are playing.</div>
+            <div class="rules">5. You will get points on the basis of your correct Answer</div>
+        </div>
+        <div class="buttons">
+            <button class="quit">Exit Quiz</button>
+            <button class="restart">Proceed</button>
+        </div>
+    </section> 
+    
+    <!-- Quiz Container -->
+    <section>
+       <div class="quiz-container" id="quiz">
+             <!--- <div class="header">
+                <div class="title"> WEB2 Quiz</div>
+                  <div class="Timer">
+                    <div class="time_text"> Time </div>
+                    <div class="Countdown" id="timer">0</div>
+                  </div>
+               </div> --->
+           <div class="quiz-header" id="questions">
+             <h2 id="question">Questions here</h2>
+             <ul>
+               <li>
+                   <input type="radio" id="a" name="answer" class="answer"/>
+                   <label id="a_text" for="a">Question</label>
+                </li>
+
+               <li>
+                   <input type="radio" id="b" name="answer" class="answer"/>
+                   <label id="b_text" for="b">Question</label>
+                </li>
+
+               <li>
+                   <input type="radio" id="c" name="answer" class="answer"/>
+                   <label id="c_text" for="c">Question</label>
+                </li>
+
+                <li>
+                    <input type="radio" id="d" name="answer" class="answer"/>
+                    <label id="d_text" for="d">Question</label>
+                </li>
+              </ul>
+            </div>
+            <div class="attempt_Que">
+               <button class="next_btn" id="nextBtn">NEXT</button>
+               <button class="sub_btn" id="submit">SUBMIT</button>
+            </div>
+        </div>
+    </section>
     
 
 </body>

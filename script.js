@@ -362,16 +362,58 @@ const quizData = [
 
 const quiz = document.getElementById('quiz');
 const answerEls = document.querySelectorAll('.answer');
-const questionEl = document.getElementById('question')
+const questionEl = document.getElementById('question');
 const a_text = document.getElementById('a_text');
 const b_text = document.getElementById('b_text');
 const c_text = document.getElementById('c_text');
 const d_text = document.getElementById('d_text');
-const submitBtn = document.getElementById('submit')
+const nextBtn = document.getElementById('nextBtn')
+const submitBtn = document.getElementById('submit');
+const startBtn = document.querySelector('.start_btn');
+const startBtnEl = document.querySelector('.contName');
+const instBox = document.querySelector('.instruction_box');
+const startQuiz = document.querySelector('.restart');
+const quizCont = document.querySelector('.quiz-container');
+const timerEl = document.querySelector('.timer')
 
 
+//Quiz initial State
 let currentQuiz = 0;
 let score = 0;
+let time = quizData.Length * 15;
+let timerId;
+
+
+//Click Start button and Hide frontpage
+startBtn.addEventListener("click", () => {
+    if(instBox.style.display === 'none') {
+        instBox.style.display = 'block';
+        startBtn.style.display = 'none';
+        startBtnEl.style.display = 'none';
+    } else {
+        instBox.style.display = 'none';
+    }
+})
+
+startQuiz.addEventListener("click", () => {
+    if(quizCont.style.display === 'none') {
+        quizCont.style.display = 'block';
+        instBox.style.display = 'none'
+    } else {
+        quizCont.style.display = 'none';
+    }
+})
+
+//Time Start
+ function quizStart() {
+    timerId = setInterval (clockTick, 1000 );
+    timerEl.textContent = time;
+    let startQuiz = document.getElementById ('instBox');
+    let quizQuesEl = document.getElementById('questions');
+    startQuiz.setAttribute('class', 'instruction_box');
+    quizQuesEl.removeAttribute('class');
+}
+
 
 loadQuiz();
 
@@ -407,7 +449,7 @@ function deselectAnswers() {
     });
 }
 
-submitBtn.addEventListener("click", () => {
+nextBtn.addEventListener("click", () => {
     // check to see the answer
     const answer = getSelected();
 
@@ -423,7 +465,8 @@ submitBtn.addEventListener("click", () => {
         if(currentQuiz < quizData.length) {
             loadQuiz();
          } else {
-             quiz.innerHTML = '<h2> You answered correctly at ${score}/${quizData.length} questions.</h2> <button onclick="location.reload()">Reload</button>';
+             quiz.innerHTML = `<h2> You answered correctly at ${score}/${quizData.length} questions.</h2> <button onclick="location.reload()">Reload</button>`;
+
          }
     }
 });
